@@ -1,0 +1,78 @@
+/* 
+se cambia el box-sizing y se resetea padding y margin
+para poder estilar mas comodamente
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: black;
+}
+
+header nav {
+  position: relative;
+  width: 525px;
+  height: 50px;
+
+  background: rgb(45, 44, 44, 0.579);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav a {
+  position: relative;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  padding: 0 27px;
+  z-index: 1;
+}
+
+/* esto es el fondo de la barra de navegacion*/
+header nav span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95px;
+  height: 100%;
+  background: linear-gradient(45deg, #36152a, #d91390);
+  border-radius: 8px;
+  transition: 0.5s;
+}
+
+/* una vez que coloques el mouse encima. el span se movera hacia el otro texto*/
+
+header nav a:nth-child(1):hover ~ span {
+  left: 0;
+}
+
+header nav a:nth-child(2):hover ~ span {
+  left: 95px;
+}
+
+header nav a:nth-child(3):hover ~ span {
+  left: 189px;
+  width: 110px;
+}
+
+header nav a:nth-child(4):hover ~ span {
+  left: 300px;
+  width: 115px;
+}
+header nav a:nth-child(5):hover ~ span {
+  left: 413px;
+  width: 115px;
+}

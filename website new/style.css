@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  
+se crea el body con fondo y un pequeño degradado de color oscuro 
+cubre toda la pantalla 
+*/
+
+body {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2) 60%),
+    url("./assets/img1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+
+  font-family: sans-serif;
+}
+
+/* se define el temaño de la barra de navegacion y se vuelve flexbox */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+
+  color: white;
+}
+
+.navbar-logo {
+  color: rgb(255, 99, 71);
+  font-size: 2.5rem;
+  font-family: cursive;
+  cursor: pointer;
+}
+
+/* 
+aca se ordena la lista. Se le coloca una separacion
+y se eliminan algunos estilos de las listas para que
+se vea mejor
+*/
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  list-style: none;
+}
+
+.menu li {
+  list-style: none;
+  margin-left: 60px;
+  font-size: 16px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* estilos del formulario formulario */
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  background-color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 15px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: none;
+
+  color: black;
+  font-size: 1rem;
+}
+
+/* 
+el "transition: background"
+
+se compone de esta manera 
+
+transition: [propiedad] [duración] [timing-function];
+
+esto solo cambia el fondo pero en el hover tambien 
+cambia el color, la diferencia es que el color se
+cambia instantaneo pero el fondo no
+
+se puede cambiar simplemente colocando "all" a la
+vez de "background" para que cambie todo
+*/
+
+.search-box button {
+  border: none;
+  background: #eee;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background 0.3s ease;
+}
+
+.search-box button:hover {
+  background: tomato;
+  color: white;
+}
+
+/*
+  aca el main calcula el tamaño del 100% de la pagina
+  el navbar para poder darle un espaciado y no se vea todo junto o uno
+  encima del otro con el "min-height"
+   */
+
+main {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: cursive;
+  font-size: 6rem;
+  color: tomato;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: transparent;
+}
+
+.btn-secondary {
+  opacity: 0.8;
+}
+
+/*
+ 
+los "@media" se utilizan para hacer la pagina responsive cambiando
+propiedades para que se adapten a dispositivos moviles 
+
+*/
+
+@media (hover: hover) {
+  .menu li a:hover {
+    color: tomato;
+  }
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    color: #000;
+    background: #fff;
+  }
+}
+
+@media (max-width: 1050px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .menu {
+    margin-top: 1rem;
+    gap: 3rem;
+  }
+
+  .search-box {
+    display: none;
+  }
+}
