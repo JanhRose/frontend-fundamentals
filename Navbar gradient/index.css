@@ -11,68 +11,124 @@ para poder estilar mas comodamente
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   background-color: black;
 }
 
-header nav {
+.nav-links {
   position: relative;
-  width: 525px;
-  height: 50px;
 
-  background: rgb(45, 44, 44, 0.579);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-header nav a {
+.nav-links a {
   position: relative;
   display: inline-block;
   font-size: 1em;
   font-weight: 500;
+  background: rgb(45, 44, 44, 0.579);
   color: white;
   text-decoration: none;
-  padding: 0 27px;
+  padding: 1rem 1.5rem;
   z-index: 1;
 }
 
-/* esto es el fondo de la barra de navegacion*/
-header nav span {
+.nav-links a::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 95px;
-  height: 100%;
-  background: linear-gradient(45deg, #36152a, #d91390);
+  inset: 0;
+  background-image: linear-gradient(45deg, #4d1b3a, #e61398);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0% 100%;
   border-radius: 8px;
-  transition: 0.5s;
+  transition: background-size 0.3s ease;
+  z-index: -1;
 }
 
-/* una vez que coloques el mouse encima. el span se movera hacia el otro texto*/
-
-header nav a:nth-child(1):hover ~ span {
-  left: 0;
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:hover::before {
+    background-size: 100% 100%;
+  }
 }
 
-header nav a:nth-child(2):hover ~ span {
-  left: 95px;
+#menu-toggle {
+  position: absolute;
+  opacity: 0;
 }
 
-header nav a:nth-child(3):hover ~ span {
-  left: 189px;
-  width: 110px;
+.hamburguer {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
 }
 
-header nav a:nth-child(4):hover ~ span {
-  left: 300px;
-  width: 115px;
+.hamburguer span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s ease;
 }
-header nav a:nth-child(5):hover ~ span {
-  left: 413px;
-  width: 115px;
+
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    justify-content: end;
+  }
+
+  .hamburguer {
+    display: inline-flex;
+    padding: 20px;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+    position: fixed;
+    top: 0%;
+    right: -100%;
+    height: 100vh;
+    width: 280px;
+
+    background: linear-gradient(180deg, #4d1b3a, #e61398);
+    transition: right 0.8s ease;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    background: none;
+
+    width: 100%;
+  }
+
+  .nav-links a:active {
+    transform: scale(0.95);
+  }
+
+  #menu-toggle:checked + .hamburguer span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    z-index: 2;
+  }
+
+  #menu-toggle:checked + .hamburguer span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle:checked + .hamburguer span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+    z-index: 2;
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    right: 0;
+  }
 }
