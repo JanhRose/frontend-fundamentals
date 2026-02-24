@@ -12,7 +12,7 @@ para poder estilar mas comodamente
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   min-height: 100vh;
-  background-color: black;
+  background: #0f0f0f;
 }
 
 .nav-links {
@@ -68,8 +68,8 @@ body {
 }
 
 .hamburguer span {
-  width: 25px;
-  height: 3px;
+  width: 30px;
+  height: 4px;
   background: white;
   transition: 0.3s ease;
 }
@@ -80,6 +80,10 @@ body {
     justify-content: end;
   }
 
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   .hamburguer {
     display: inline-flex;
     padding: 20px;
@@ -88,34 +92,37 @@ body {
   .nav-links {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
     flex-direction: column;
     position: fixed;
     top: 0%;
-    right: -100%;
+    right: -50%;
     height: 100vh;
     width: 280px;
 
-    background: linear-gradient(180deg, #4d1b3a, #e61398);
+    background: linear-gradient(180deg, #3a0f2b, #7a1b5c 60%, #d61a8c);
+    box-shadow: -18px 0 40px rgba(0, 0, 0, 0.45);
+
     transition: right 0.8s ease;
   }
 
   .nav-links a {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     letter-spacing: 1px;
     display: flex;
     justify-content: center;
     background: none;
 
     width: 100%;
+    font-weight: 500px;
   }
 
   .nav-links a:active {
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
 
   #menu-toggle:checked + .hamburguer span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(6px, 5px);
     z-index: 2;
   }
 
@@ -124,7 +131,7 @@ body {
   }
 
   #menu-toggle:checked + .hamburguer span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    transform: rotate(-45deg) translate(7px, -6px);
     z-index: 2;
   }
 
