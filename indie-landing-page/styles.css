@@ -121,6 +121,10 @@ section {
 .hero-actions {
 }
 
+.hero-link {
+  text-decoration: none;
+}
+
 .projects {
   display: flex;
   align-items: center;
