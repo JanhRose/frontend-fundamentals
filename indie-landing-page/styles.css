@@ -119,8 +119,10 @@ section {
 }
 
 .hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
 }
-
 .hero-link {
   text-decoration: none;
 }
@@ -189,4 +191,25 @@ footer {
 
 .footer-links a:hover {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-list {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .hero {
+    padding: 4rem 1.5rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
 }
